@@ -95,7 +95,7 @@ class _D04PageUIState extends State<D04PageUI> {
                 ),
               ),
 
-              const SizedBox(height: 150), // เว้นระยะให้ข้อความด้านล่าง
+              const SizedBox(height: 500), // เว้นระยะให้ข้อความด้านล่าง
 
               // 6. ข้อความกลับไปหน้า Login
               // 6. ข้อความกลับไปหน้า Login

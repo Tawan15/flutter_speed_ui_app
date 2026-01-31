@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_ui_app/views/B02PageUI.dart';
+import 'package:flutter_speed_ui_app/views/B03PageUI.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class B01pageui extends StatefulWidget {
@@ -90,7 +91,15 @@ class _B01pageuiState extends State<B01pageui> {
                         const SizedBox(width: 20),
                         Expanded(
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const B03pageui(), // ตรวจสอบชื่อ Class หน้า B02 ให้ตรงกัน
+                                ),
+                              );
+                            },
                             child: const Text(
                               "Register",
                               style: TextStyle(

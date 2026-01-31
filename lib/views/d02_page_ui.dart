@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_ui_app/views/d03_page_ui.dart';
 import 'package:flutter_speed_ui_app/views/d04_page_ui.dart';
+import 'package:flutter_speed_ui_app/views/home_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
 
@@ -25,7 +26,17 @@ class _D02PageUIState extends State<D02PageUI> {
               const SizedBox(height: 40),
               // 1. ปุ่มย้อนกลับ
               InkWell(
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  // ใช้ pushAndRemoveUntil เพื่อย้อนกลับไปหน้า Home และล้างหน้าอื่นทิ้งทั้งหมด
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const HomeUi(), // เปลี่ยนชื่อเป็นคลาสหน้า Home ของคุณ
+                    ),
+                    (route) => false, // ล้าง stack หน้าก่อนหน้าทั้งหมด
+                  );
+                },
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -49,7 +60,6 @@ class _D02PageUIState extends State<D02PageUI> {
 
               const SizedBox(height: 30),
 
-              // --- ส่วนที่คุณต้องการแก้ไขสีฟอนต์คำใบ้ ---
               _buildTextField("Enter your email",
                   hintColor: const Color(0xFF8391A1)),
               const SizedBox(height: 15),
@@ -64,10 +74,10 @@ class _D02PageUIState extends State<D02PageUI> {
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const D04PageUI()),
-                            );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const D04PageUI()),
+                    );
                   },
                   child: Text(
                     "Forgot Password?",
@@ -118,7 +128,7 @@ class _D02PageUIState extends State<D02PageUI> {
               ),
 
               SizedBox(
-                height: 330,
+                height: 300,
               ),
               Center(
                 child: RichText(

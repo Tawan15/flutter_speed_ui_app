@@ -128,7 +128,7 @@ class _C02PageUiState extends State<C02PageUi> {
                   ],
                 ),
 
-                const SizedBox(height: 35),
+                const SizedBox(height: 20),
 
                 // 6. ส่วนท้าย (ปรับสีตามรูป)
                 Row(

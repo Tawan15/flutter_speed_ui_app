@@ -62,12 +62,12 @@ class _D07PageUIState extends State<D07PageUI> {
                 height: 55,
                 child: ElevatedButton(
                   onPressed: () {
-                    // กลับไปยังหน้า Login (D02) และล้าง Stack ทั้งหมด
-                    Navigator.pushAndRemoveUntil(
+                   
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const D02PageUI()),
-                      (route) => false,
-                    );
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const D02PageUI()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1E232C),

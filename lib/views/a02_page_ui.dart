@@ -76,12 +76,7 @@ class _A02PageUiState extends State<A02PageUi> {
                 width: double.infinity,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const A01PageUI()),
-                      );
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF792F1),
                     shape: RoundedRectangleBorder(
