@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_ui_app/views/e03_page_ui.dart';
 import 'package:flutter_speed_ui_app/views/e05_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -113,9 +114,10 @@ class _E04PageUiState extends State<E04PageUi> {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const E05PageUi()),
-                    );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const E05PageUi()),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -149,7 +151,13 @@ class _E04PageUiState extends State<E04PageUi> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const E03PageUi()),
+                          );
+                        },
                         child: Text(
                           "Create Account",
                           style: GoogleFonts.poppins(
