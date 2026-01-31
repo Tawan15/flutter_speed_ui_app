@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_speed_ui_app/views/%E0%B8%B4c01_page_ui.dart';
 import 'package:flutter_speed_ui_app/views/a01_page_ui.dart';
 import 'package:flutter_speed_ui_app/views/B01PageUI.dart';
+import 'package:flutter_speed_ui_app/views/d01_page_ui.dart';
+import 'package:flutter_speed_ui_app/views/e01_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 int currentIndexStatus = 1;
@@ -144,6 +146,10 @@ class _HomeUiState extends State<HomeUi> {
                   elevation: 0, // ความเงาของปุ่ม (0 คือแบนราบแบบในรูป)
                 ),
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const D01PageUI()),
+                    );
                   // ใส่คำสั่งเมื่อกดปุ่มตรงนี้
                 },
                 child: const Text(
@@ -170,6 +176,10 @@ class _HomeUiState extends State<HomeUi> {
                   elevation: 0, // ความเงาของปุ่ม (0 คือแบนราบแบบในรูป)
                 ),
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const E01PageUI()),
+                    );
                   // ใส่คำสั่งเมื่อกดปุ่มตรงนี้
                 },
                 child: const Text(

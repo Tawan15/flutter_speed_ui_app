@@ -9,218 +9,200 @@ class C03PageUi extends StatefulWidget {
 }
 
 class _C03PageUiState extends State<C03PageUi> {
-  bool _isAccepted = false; // สำหรับ Checkbox
+  bool _isAccepted = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        // โลโก้เล็กที่มุมขวาบนตามดีไซน์
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20, top: 10),
-            child: Container(
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xFF00C853), width: 1.5),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Text(
-                "H",
-                style: TextStyle(
-                  color: Color(0xFF00C853),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 20),
-              // 1. หัวข้อหน้าจอ
-              Text(
-                "Create your account",
-                style: GoogleFonts.poppins(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 30),
-
-              // 2. ฟิลด์กรอกข้อมูล Name, Email, Password, Confirm Password
-              _buildInputLabel("Name"),
-              _buildTextField("ex: jon smith"),
-              const SizedBox(height: 15),
-              
-              _buildInputLabel("Email"),
-              _buildTextField("ex: jon.smith@email.com"),
-              const SizedBox(height: 15),
-              
-              _buildInputLabel("Password"),
-              _buildTextField("*********", isPassword: true),
-              const SizedBox(height: 15),
-              
-              _buildInputLabel("Confirm password"),
-              _buildTextField("*********", isPassword: true),
-              const SizedBox(height: 15),
-
-              // 3. Checkbox เงื่อนไขการใช้งาน
-              Row(
-                children: [
-                  Checkbox(
-                    value: _isAccepted,
-                    activeColor: const Color(0xFF00C853),
-                    onChanged: (value) {
-                      setState(() {
-                        _isAccepted = value!;
-                      });
-                    },
-                  ),
-                  const Text("I understood the "),
-                  const Text(
-                    "terms & policy.",
-                    style: TextStyle(
-                      color: Color(0xFF00C853),
-                      fontWeight: FontWeight.bold,
+      backgroundColor: Colors.white, // พื้นหลังหลักสีขาวสะอาด
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                // Header: Back Button & Image Logo Frame
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                      icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 20),
+                      onPressed: () => Navigator.pop(context),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-
-              // 4. ปุ่ม SIGN UP สีเขียว
-              SizedBox(
-                width: double.infinity,
-                height: 55,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF00C853),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: const Text(
-                    "SIGN UP",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 25),
-              const Text("or sign up with", style: TextStyle(color: Colors.grey)),
-              const SizedBox(height: 20),
-
-              // 5. ปุ่ม Social Media (ใช้รูปภาพตามที่คุณต้องการ)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _socialSquareButton('assets/images/google.png'),
-                  const SizedBox(width: 20),
-                  _socialSquareButton('assets/images/facebook1.png'),
-                  const SizedBox(width: 20),
-                  _socialSquareButton('assets/images/twitter.png'),
-                ],
-              ),
-
-              const SizedBox(height: 30),
-
-              // 6. ส่วนท้ายย้อนไปหน้า Login
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Have an account? "),
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: const Text(
-                      "SIGN IN",
-                      style: TextStyle(
-                        color: Color(0xFF00C853),
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: const Color(0xFF19C463), width: 1.2), // สีเขียวขอบโลโก้
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: Image.asset(
+                          'assets/images/img10.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => 
+                            const Center(child: Text("H", style: TextStyle(color: Color(0xFF19C463), fontWeight: FontWeight.bold))),
+                        ),
                       ),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                Text(
+                  "Create your account",
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
                   ),
-                ],
-              ),
-              const SizedBox(height: 40),
-            ],
+                ),
+                const SizedBox(height: 35),
+
+                // Fields
+                _buildInputLabel("Name"),
+                _buildTextField("ex: jon smith"),
+                const SizedBox(height: 18),
+                
+                _buildInputLabel("Email"),
+                _buildTextField("ex: jon.smith@email.com"),
+                const SizedBox(height: 18),
+                
+                _buildInputLabel("Password"),
+                _buildTextField("*********", isPassword: true),
+                const SizedBox(height: 18),
+                
+                _buildInputLabel("Confirm password"),
+                _buildTextField("*********", isPassword: true),
+                const SizedBox(height: 20),
+
+                // Checkbox Section
+                Row(
+                  children: [
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: Checkbox(
+                        value: _isAccepted,
+                        activeColor: const Color(0xFF19C463),
+                        side: const BorderSide(color: Color(0xFF19C463), width: 1.5),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                        onChanged: (v) => setState(() => _isAccepted = v!),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text("I understood the ", style: TextStyle(color: Colors.grey[700], fontSize: 14)),
+                    const Text(
+                      "terms & policy.",
+                      style: TextStyle(color: Color(0xFF19C463), fontWeight: FontWeight.w600, fontSize: 14),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+
+                // Main Sign Up Button
+                _buildPrimaryButton("SIGN UP", const Color(0xFF19C463), () {}),
+                
+                const SizedBox(height: 25),
+                Text("or sign up with", style: TextStyle(color: Colors.grey[500], fontSize: 14)),
+                const SizedBox(height: 25),
+
+                // Social Buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _socialButton('assets/images/google.png'),
+                    _socialButton('assets/images/facebook1.png'),
+                    _socialButton('assets/images/twitter.png'),
+                  ],
+                ),
+                const SizedBox(height: 35),
+
+                // Footer
+                _buildFooterText("Have an account? ", "SIGN IN", () => Navigator.pop(context)),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  // --- Widget เสริม ---
+  // ปรับแก้สี Label ให้เป็นสีเทาตามรูป
+  Widget _buildInputLabel(String label) => Align(
+    alignment: Alignment.centerLeft,
+    child: Text(
+      label,
+      style: GoogleFonts.poppins(
+        color: const Color(0xFF7D7D7D), // สีเทาเข้มปานกลางของหัวข้อฟิลด์
+        fontWeight: FontWeight.w500,
+        fontSize: 15,
+      ),
+    ),
+  );
 
-  Widget _buildInputLabel(String label) {
-    return Align(
-      alignment: Alignment.centerLeft,
+  // ปรับแก้สีพื้นหลัง TextField ให้เป็นเทาอ่อนมาก (F9F9F9)
+  Widget _buildTextField(String hint, {bool isPassword = false}) => Container(
+    margin: const EdgeInsets.only(top: 8),
+    decoration: BoxDecoration(
+      color: const Color(0xFFF9F9F9), // สีพื้นหลังฟิลด์ที่ดูนุ่มนวล
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: TextField(
+      obscureText: isPassword,
+      style: const TextStyle(color: Colors.black87),
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: const TextStyle(color: Color(0xFFC2C2C2), fontSize: 14), // สีของ Hint text
+        border: InputBorder.none,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+      ),
+    ),
+  );
+
+  Widget _buildPrimaryButton(String text, Color color, VoidCallback onPressed) => SizedBox(
+    width: double.infinity,
+    height: 58,
+    child: ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      ),
       child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 16,
-          color: Colors.grey,
-          fontWeight: FontWeight.w500,
-        ),
+        text,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
       ),
-    );
-  }
+    ),
+  );
 
-  Widget _buildTextField(String hint, {bool isPassword = false}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF8F8F8),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: TextField(
-        obscureText: isPassword,
-        decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: const TextStyle(color: Colors.black26),
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        ),
-      ),
-    );
-  }
+  // สีปุ่ม Social เทาอ่อน (F5F5F5)
+  Widget _socialButton(String path) => Container(
+    height: 55,
+    width: (MediaQuery.of(context).size.width - 90) / 3,
+    decoration: BoxDecoration(
+      color: const Color(0xFFF5F5F5),
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: Center(child: Image.asset(path, width: 26)),
+  );
 
-  Widget _socialSquareButton(String imagePath) {
-    return Container(
-      height: 60,
-      width: 80,
-      decoration: BoxDecoration(
-        color: const Color(0xFFF1F1F1),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Center(
-        child: Image.asset(
-          imagePath,
-          width: 30,
-          height: 30,
-          fit: BoxFit.contain,
-          errorBuilder: (context, error, stackTrace) =>
-              const Icon(Icons.broken_image, color: Colors.grey),
+  Widget _buildFooterText(String t1, String t2, VoidCallback onTap) => Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(t1, style: const TextStyle(color: Colors.grey)),
+      GestureDetector(
+        onTap: onTap,
+        child: Text(
+          t2,
+          style: const TextStyle(color: Color(0xFF19C463), fontWeight: FontWeight.bold),
         ),
-      ),
-    );
-  }
+      )
+    ],
+  );
 }

@@ -28,7 +28,7 @@ class _A01PageUIState extends State<A01PageUI> {
                 child: Container(
                   // --- เพิ่มบรรทัดนี้เพื่อเว้นขอบจอ ---
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                      const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
                   // ----------------------------
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.55,

@@ -110,8 +110,8 @@ class _B01pageuiState extends State<B01pageui> {
 
             // 2. ปุ่มย้อนกลับ (Positioned ไว้ซ้ายบนสุด)
             Positioned(
-              top: 10,
-              left: 10,
+              top: 40,
+              left: 30,
               child: IconButton(
                 icon: const Icon(Icons.arrow_back_ios_new,
                     color: Colors.black, size: 25),

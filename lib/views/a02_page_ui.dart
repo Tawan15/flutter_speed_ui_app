@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_ui_app/views/a01_page_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class A02PageUi extends StatefulWidget {
@@ -75,7 +76,12 @@ class _A02PageUiState extends State<A02PageUi> {
                 width: double.infinity,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const A01PageUI()),
+                      );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF792F1),
                     shape: RoundedRectangleBorder(
