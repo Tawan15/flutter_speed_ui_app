@@ -1,16 +1,6 @@
 # flutter_speed_ui_app
 
-A new Flutter project.
+<img width="395" height="786" alt="a1" src="https://github.com/user-attachments/assets/6c021143-2c84-483a-8bf5-735bd844e84d" />
 
-## Getting Started
+<img width="394" height="787" alt="a2" src="https://github.com/user-attachments/assets/732a703c-2641-414a-a576-58c96a849b8a" />
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
